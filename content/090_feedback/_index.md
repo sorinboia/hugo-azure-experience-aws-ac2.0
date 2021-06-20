@@ -8,8 +8,7 @@ pre = "<b>9. </b>"
 
 The code in this repo is under constant development.  
 
-For any feedback or suggestions, either open an [Issue](https://github.com/sorinboia/nginx-experience-aws-ac2.0/issues) on GitHub, or contact:  
+For any feedback or suggestions, either open an [Issue](https://github.com/sorinboia/nginx-experience-azure-ac2.0/issues) on GitHub, or contact:  
 
 [Sorin](https://il.linkedin.com/in/sorin-boiangiu-38196938) for any NGINX related topics  
 
-[Artiom](https://artioml.net/) for any AWS related topics

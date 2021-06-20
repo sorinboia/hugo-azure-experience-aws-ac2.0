@@ -9,7 +9,8 @@ weight = 20
 1. Deploy all Nginx components in the Kubernetes environment
 
 ```
-nginx-meshctl deploy --registry-server "sorinboia" --image-tag 0.9.0 --sample-rate 1 --disable-auto-inject
+kubectl apply -f files/5service_mesh/aks-kublet-webhook.yaml
+./files/binaries/nginx-meshctl deploy --registry-server "sorinboia" --image-tag 0.9.0 --sample-rate 1 --disable-auto-inject
 ```
 {{< output >}}
 Deploying NGINX Service Mesh Control Plane in namespace "nginx-mesh"...
@@ -37,13 +38,15 @@ NGINX Service Mesh is running.
 kubectl get pods -n nginx-mesh
 ```
 {{< output >}}
-grafana-766d495d65-mjngv              1/1     Running   0          5m30s
-nats-server-7d457c74d9-csjt2          1/1     Running   0          5m34s
-nginx-mesh-api-575858b96b-djq7h       1/1     Running   0          5m32s
-nginx-mesh-metrics-57dd4796b8-6mtqc   1/1     Running   0          5m31s
-prometheus-67dc46b8b6-2wkgg           1/1     Running   0          5m30s
-spire-agent-nv5z2                     1/1     Running   0          6m18s
-spire-server-0                        2/2     Running   0          6m18s
-zipkin-564b9d4954-4hqdr               1/1     Running   0          5m29s
+NAME                                  READY   STATUS    RESTARTS   AGE
+grafana-7f76c8b894-2flrg              1/1     Running   0          71s
+nats-server-65dcd7b59b-k9k9f          1/1     Running   0          73s
+nginx-mesh-api-b84969c57-bb56p        1/1     Running   0          73s
+nginx-mesh-metrics-5c4dd47b89-x4xfm   1/1     Running   0          73s
+prometheus-8d5fb5879-d8fz9            1/1     Running   0          72s
+spire-agent-679lw                     1/1     Running   0          119s
+spire-agent-72xj2                     1/1     Running   0          119s
+spire-server-0                        2/2     Running   0          119s
+zipkin-68dcc9f5b5-lmbhq               1/1     Running   0          71s
 {{< /output >}}
 

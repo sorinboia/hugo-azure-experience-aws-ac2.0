@@ -13,30 +13,18 @@
       <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
       
       <guid>/020_terraform/010_terraform_apply_1/</guid>
-      <description>Go to the &amp;ldquo;terraform&amp;rdquo; directory where we can find the terraform plan.  cd terraform Run the following commands, terraform plan will show us what it is going to be deployed in AWS by Terraform:  terraform init terraform plan Now let&amp;rsquo;s deploy the environment  terraform apply --auto-approve It will take around 10 minutes for Terraform and AWS to finish the initial deployment.
-Please continue to the next page to learn about Kubernetes and Amazon EKS basics.</description>
+      <description> Go to the &amp;ldquo;terraform&amp;rdquo; directory where we can find the terraform plan.  cd terraform Run the following commands, terraform plan will show us what it is going to be deployed in Azure by Terraform:  terraform init terraform plan Now let&amp;rsquo;s deploy the environment  terraform apply --auto-approve It will take around 10 minutes for Terraform and Azure to finish the initial deployment.
+</description>
     </item>
     
     <item>
-      <title>AWS EKS</title>
-      <link>/020_terraform/020_eks_1/</link>
+      <title>AKS Verification</title>
+      <link>/020_terraform/030_aks_verification_1/</link>
       <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
       
-      <guid>/020_terraform/020_eks_1/</guid>
-      <description>While you wait, you can review the Introduction section of the AWS EKS Workshop to learn about Kubernetes and Amazon EKS basics.
-Managed control plane Amazon EKS provides a scalable and highly-available control plane that runs across multiple AWS availability zones. The Amazon EKS service automatically manages the availability and scalability of the Kubernetes API servers and the etcd persistence layer for each cluster. Amazon EKS runs the Kubernetes control plane across three Availability Zones in order to ensure high availability, and it automatically detects and replaces unhealthy masters.</description>
-    </item>
-    
-    <item>
-      <title>EKS Verification</title>
-      <link>/020_terraform/030_eks_verification_1/</link>
-      <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
-      
-      <guid>/020_terraform/030_eks_verification_1/</guid>
+      <guid>/020_terraform/030_aks_verification_1/</guid>
       <description>Wait for Terraform to finish and verify the deployment is working as expected and we are able to control the Kubernetes environment.
- We need to save the remote access config for the Kubernetes cluster locally:  mkdir ~/.kube/ terraform output &amp;gt; ~/.kube/configCheck and see that our cluster is up an running.
-Below we should see our two K8s worker nodes:  kubectl get nodesOutput
-NAME STATUS ROLES AGE VERSIONip-10-0-3-204.</description>
+ We need to save the remote access config for the Kubernetes cluster locally:  mkdir ~/.kube/terraform output kube_config | sed &#39;1d;$d&#39; &amp;gt; ~/.kube/configCheck and see that our cluster is up an running. Below we should see our two K8s worker nodes:  kubectl get nodesOutput</description>
     </item>
     
   </channel>
