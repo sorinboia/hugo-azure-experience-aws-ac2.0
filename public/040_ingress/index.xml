@@ -6,11 +6,7 @@
     <description>Recent content in Increase availability, security and application performance with Kubernetes Nginx Ingress on Nginx Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2020 14:37:59 +0300</lastBuildDate>
-    
-	<atom:link href="/040_ingress/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 08 Jul 2020 14:37:59 +0300</lastBuildDate><atom:link href="/040_ingress/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nginx Kubernetes Ingress Installation</title>
       <link>/040_ingress/010_ingress_install_1/</link>

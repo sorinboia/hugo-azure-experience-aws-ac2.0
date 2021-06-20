@@ -74,8 +74,7 @@ metadata:
   name: dashboard-nginx-ingress
   namespace: nginx-ingress
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "tcp"
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/azure-dns-label-name: dashboard-$randomnumber
 spec:
   type: LoadBalancer
   ports:
@@ -94,17 +93,17 @@ EOF
 kubectl get svc --namespace=nginx-ingress
 ```
 {{< output >}}
-NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                 PORT(S)                      AGE
-dashboard-nginx-ingress   LoadBalancer   172.20.36.60    aeb592ad4011544219c0bc49581baa13-421891138.eu-central-1.elb.amazonaws.com   80:32044/TCP                 11m
-nginx-ingress             LoadBalancer   172.20.14.206   ab21b88fec1f445d98c79398abc2cd5d-961716132.eu-central-1.elb.amazonaws.com   80:30284/TCP,443:31110/TCP   5h35m
+NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+dashboard-nginx-ingress   LoadBalancer   10.0.114.225   20.90.252.195   80:30766/TCP                 38s
+nginx-ingress             LoadBalancer   10.0.114.203   20.90.248.2     80:31470/TCP,443:31908/TCP   3m36s
 {{< /output >}}
 
 
 
-Note the EXTERNAL-IP of the "dashboard-nginx-ingress". This is the hostname that we are going to use in order to view the Nginx Dashboard.  
+Note the EXTERNAL-IP of the "dashboard-nginx-ingress". This is the IP address that we are going to use in order to view the Nginx Dashboard.  
 Browse to the following location and verify you can see the dashboard: `http://<DASHBOARD-EXTERNAL-IP>/dashboard.html`
 
-Note the EXTERNAL-IP of the "nginx-ingress". This is the hostname that we are going to use in order to publish the Arcadia web application.  
+Note the EXTERNAL-IP of the "nginx-ingress". This is the hostname/IP address that we are going to use in order to publish the Arcadia web application.  
 Browse to the following location and verify that you receive a 404 status code: `http://<INGRESS-EXTERNAL-IP>/`  
 
 {{% notice warning %}}

@@ -10,7 +10,7 @@ weight = 10
 cd terraform
 ```
 
-2. Run the following commands, terraform plan will show us what it is going to be deployed in AWS by Terraform:
+2. Run the following commands, terraform plan will show us what it is going to be deployed in Azure by Terraform:
 ```bash
 terraform init
 terraform plan
@@ -23,6 +23,5 @@ terraform apply --auto-approve
 ```
 
 {{% notice info %}}
-It will take around 10 minutes for Terraform and AWS to finish the initial deployment.  
-Please continue to the next page to learn about Kubernetes and Amazon EKS basics.
+It will take around 10 minutes for Terraform and Azure to finish the initial deployment.  
 {{% /notice %}}

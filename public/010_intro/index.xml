@@ -6,28 +6,18 @@
     <description>Recent content in Intro to the workshop on Nginx Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2020 14:11:17 +0300</lastBuildDate>
-    
-	<atom:link href="/010_intro/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 08 Jul 2020 14:11:17 +0300</lastBuildDate><atom:link href="/010_intro/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AWS Workshop environment</title>
+      <title>Azure console and general instructions</title>
       <link>/010_intro/005_workshop_path/</link>
       <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
       
       <guid>/010_intro/005_workshop_path/</guid>
-      <description>There are two ways of doing the workshop, as part of an AWS event or on your own. Please click the relevant path.
- AWS Workshop On your own  </description>
-    </item>
-    
-    <item>
-      <title>Cloud 9</title>
-      <link>/010_intro/040_cloud9_1/</link>
-      <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
-      
-      <guid>/010_intro/040_cloud9_1/</guid>
-      <description>Open the Cloud9 console, and click on Open IDE. This will open a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and a terminal. We will be using it for the rest of the workshop.  Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.</description>
+      <description>During the workshop we will use the Azure &amp;ldquo;Cloud Shell&amp;rdquo; console.
+All the tools required to run the lab are included.
+Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources.
+It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
+Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.</description>
     </item>
     
   </channel>

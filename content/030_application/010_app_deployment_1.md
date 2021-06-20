@@ -42,14 +42,14 @@ arcadia-users-768dddd844-8s75q              1/1     Running   0          33s
 kubectl get svc -owide
 ```
 {{< output >}}
-NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE    SELECTOR
-arcadia-db                  ClusterIP   172.20.180.18    <none>        27017/TCP   74s    app=arcadia-db
-arcadia-frontend            ClusterIP   172.20.11.202    <none>        80/TCP      73s    app=arcadia-frontend
-arcadia-login               ClusterIP   172.20.247.63    <none>        80/TCP      73s    app=arcadia-login
-arcadia-stock-transaction   ClusterIP   172.20.155.246   <none>        80/TCP      72s    app=arcadia-stock-transaction
-arcadia-stocks              ClusterIP   172.20.23.237    <none>        80/TCP      71s    app=arcadia-stocks
-arcadia-users               ClusterIP   172.20.73.208    <none>        80/TCP      71s    app=arcadia-users
-kubernetes                  ClusterIP   172.20.0.1       <none>        443/TCP     7m2s   <none>   
+NAME                        TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)     AGE     SELECTOR
+arcadia-db                  ClusterIP   10.0.136.204   <none>        27017/TCP   2m56s   app=arcadia-db
+arcadia-frontend            ClusterIP   10.0.30.220    <none>        80/TCP      2m56s   app=arcadia-frontend
+arcadia-login               ClusterIP   10.0.201.149   <none>        80/TCP      2m56s   app=arcadia-login
+arcadia-stock-transaction   ClusterIP   10.0.248.28    <none>        80/TCP      2m56s   app=arcadia-stock-transaction
+arcadia-stocks              ClusterIP   10.0.160.135   <none>        80/TCP      2m56s   app=arcadia-stocks
+arcadia-users               ClusterIP   10.0.211.57    <none>        80/TCP      2m56s   app=arcadia-users
+kubernetes                  ClusterIP   10.0.0.1       <none>        443/TCP     28m     <none>
 {{< /output >}}
 
 {{% notice info %}}

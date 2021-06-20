@@ -6,19 +6,18 @@
     <description>Recent content on Nginx Experience</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2020 14:37:59 +0300</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 08 Jul 2020 14:37:59 +0300</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AWS Workshop environment</title>
+      <title>Azure console and general instructions</title>
       <link>/010_intro/005_workshop_path/</link>
       <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
       
       <guid>/010_intro/005_workshop_path/</guid>
-      <description>There are two ways of doing the workshop, as part of an AWS event or on your own. Please click the relevant path.
- AWS Workshop On your own  </description>
+      <description>During the workshop we will use the Azure &amp;ldquo;Cloud Shell&amp;rdquo; console.
+All the tools required to run the lab are included.
+Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources.
+It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
+Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.</description>
     </item>
     
     <item>
@@ -39,16 +38,6 @@
       <description>Deploy the app  kubectl apply -f files/4ingress/1arcadia_delpoy.yamlOutput
 deployment.apps/arcadia-db createdservice/arcadia-db createddeployment.apps/arcadia-frontend createdservice/arcadia-frontend createddeployment.apps/arcadia-login createdservice/arcadia-login createddeployment.apps/arcadia-stock-transaction createdservice/arcadia-stock-transaction createddeployment.apps/arcadia-stocks createdservice/arcadia-stocks createddeployment.apps/arcadia-users createdservice/arcadia-users created Check that all is deployed and working as expected:  kubectl get podsOutput
 NAME READY STATUS RESTARTS AGEarcadia-db-696f979799-sdzb6 1/1 Running 0 36sarcadia-frontend-57ff4f888-v4ggh 1/1 Running 0 36sarcadia-login-c995f8dcc-7gvvp 1/1 Running 0 35sarcadia-stock-transaction-b996cddb9-xzckf 1/1 Running 0 34sarcadia-stocks-dd58548f7-k7tg7 1/1 Running 0 34sarcadia-users-768dddd844-8s75q 1/1 Running 0 33s kubectl get svc -owideOutput</description>
-    </item>
-    
-    <item>
-      <title>AWS Workshop Portal</title>
-      <link>/010_intro/aws_event/010_aws_wokshop_portal_1/</link>
-      <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
-      
-      <guid>/010_intro/aws_event/010_aws_wokshop_portal_1/</guid>
-      <description>This workshop creates an AWS account and a Cloud9 environment. You will need the Participant Hash provided upon entry, and your email address to track your unique session.
- Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up.  Enter the provided hash in the text box. The button on the bottom right corner changes to Accept Terms &amp;amp; Login. Click on that button to continue.</description>
     </item>
     
     <item>
@@ -100,18 +89,6 @@ Please continue to the next page to learn about Kubernetes and Amazon EKS basics
       <guid>/020_terraform/020_eks_1/</guid>
       <description>While you wait, you can review the Introduction section of the AWS EKS Workshop to learn about Kubernetes and Amazon EKS basics.
 Managed control plane Amazon EKS provides a scalable and highly-available control plane that runs across multiple AWS availability zones. The Amazon EKS service automatically manages the availability and scalability of the Kubernetes API servers and the etcd persistence layer for each cluster. Amazon EKS runs the Kubernetes control plane across three Availability Zones in order to ensure high availability, and it automatically detects and replaces unhealthy masters.</description>
-    </item>
-    
-    <item>
-      <title>Cloud Formation</title>
-      <link>/010_intro/selfpaced/020_cloudformation_1/</link>
-      <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
-      
-      <guid>/010_intro/selfpaced/020_cloudformation_1/</guid>
-      <description>Click the bellow button and deploy the template:  
- Click Next and enter a unique &amp;ldquo;Stack name&amp;rdquo;
-  Click Next 2 times accepting all the defaults, but make sure the following is selected on the last screen:
-  Click Create stack.  Wait until the stack Status is CREATE_COMPLETE.</description>
     </item>
     
     <item>
@@ -188,17 +165,6 @@ NAME STATUS ROLES AGE VERSIONip-10-0-3-204.</description>
     </item>
     
     <item>
-      <title>IAM Role</title>
-      <link>/010_intro/selfpaced/030_iam_role_1/</link>
-      <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
-      
-      <guid>/010_intro/selfpaced/030_iam_role_1/</guid>
-      <description>  Follow this deep link to find your Cloud9 EC2 instance
-  Select the instance, then choose Actions / Instance Settings / Attach/Replace IAM Role
-  Choose eksworkshop-admin from the IAM Role drop down, and select Apply  </description>
-    </item>
-    
-    <item>
       <title>Nginx App Protect testing</title>
       <link>/060_security/030_nap_test/</link>
       <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
@@ -241,15 +207,6 @@ Therefor we don&amp;rsquo;t want to allow any kind of automated tool to access t
 We are going to block not only malicious bots but also tools like curl.
  Try and access the stock microservice and get data with curl.  curl -k https://$nginx_ingress/v1/stock/ticker/allThe request will succeed.
 Apply the bot config  cat &amp;lt;&amp;lt; EOF | kubectl apply -f -apiVersion: appprotect.</description>
-    </item>
-    
-    <item>
-      <title>Cloud 9</title>
-      <link>/010_intro/040_cloud9_1/</link>
-      <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
-      
-      <guid>/010_intro/040_cloud9_1/</guid>
-      <description>Open the Cloud9 console, and click on Open IDE. This will open a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and a terminal. We will be using it for the rest of the workshop.  Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.</description>
     </item>
     
     <item>
