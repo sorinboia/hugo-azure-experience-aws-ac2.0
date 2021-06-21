@@ -58,7 +58,7 @@ NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGEelk-web LoadBalancer 10.0.113.59 20
       <guid>/040_ingress/010_ingress_install_1/</guid>
       <description>We are going to use the Nginx installation manifests based on the Nginx Ingress Controller installation guide. For simplicity - we have already prepared an installation script.
  Run the command bellow:  ./files/4ingress/ingress_install.shOutput
-Starting Nginx Ingress InstallCloning into &amp;#39;kubernetes-ingress&amp;#39;...remote: Enumerating objects: 1270, done.remote: Counting objects: 100% (1270/1270), done.remote: Compressing objects: 100% (799/799), done.remote: Total 34666 (delta 552), reused 1008 (delta 422), pack-reused 33396Receiving objects: 100% (34666/34666), 46.</description>
+Starting Nginx Ingress InstallCloning into &amp;#39;kubernetes-ingress&amp;#39;...remote: Enumerating objects: 36045, done.remote: Counting objects: 100% (3722/3722), done.remote: Compressing objects: 100% (831/831), done.remote: Total 36045 (delta 3166), reused 2902 (delta 2890), pack-reused 32323Receiving objects: 100% (36045/36045), 50.</description>
     </item>
     
     <item>
@@ -67,8 +67,7 @@ Starting Nginx Ingress InstallCloning into &amp;#39;kubernetes-ingress&amp;#39;
       <pubDate>Wed, 08 Jul 2020 14:37:59 +0300</pubDate>
       
       <guid>/080_cleanup/010_cleanup/</guid>
-      <description> In order to delete the resources created during this workshop, run the commands below:  kubectl delete --all svc --namespace=nginx-meshkubectl delete --all svc --namespace=nginx-ingresskubectl delete --all svc --namespace=defaultcd terraformterraform destroy --auto-approve Finally, delete the previously created Cloud9 stack in the CloudFormation console.  Please note: This will also delete the Cloud9 IDE instance.
-</description>
+      <description> In order to delete the resources created during this workshop, run the commands below:  kubectl delete --all svc --namespace=nginx-meshkubectl delete --all svc --namespace=nginx-ingresskubectl delete --all svc --namespace=defaultcd terraformterraform destroy --auto-approve </description>
     </item>
     
     <item>

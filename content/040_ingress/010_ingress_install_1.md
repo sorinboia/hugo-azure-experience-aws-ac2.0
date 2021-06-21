@@ -15,32 +15,24 @@ For simplicity - we have already prepared an installation script.
 {{< output >}}
 Starting Nginx Ingress Install
 Cloning into 'kubernetes-ingress'...
-remote: Enumerating objects: 1270, done.
-remote: Counting objects: 100% (1270/1270), done.
-remote: Compressing objects: 100% (799/799), done.
-remote: Total 34666 (delta 552), reused 1008 (delta 422), pack-reused 33396
-Receiving objects: 100% (34666/34666), 46.90 MiB | 9.88 MiB/s, done.
-Resolving deltas: 100% (18747/18747), done.
-Updating files: 100% (782/782), done.
-Updating files: 100% (3425/3425), done.
-Note: switching to 'v1.10.1'.
+remote: Enumerating objects: 36045, done.
+remote: Counting objects: 100% (3722/3722), done.
+remote: Compressing objects: 100% (831/831), done.
+remote: Total 36045 (delta 3166), reused 2902 (delta 2890), pack-reused 32323
+Receiving objects: 100% (36045/36045), 50.39 MiB | 25.75 MiB/s, done.
+Resolving deltas: 100% (19933/19933), done.
+Note: checking out 'v1.11.1'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
+state without impacting any branches by performing another checkout.
 
 If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
+do so (now or later) by using -b with the checkout command again. Example:
 
-  git switch -c <new-branch-name>
+  git checkout -b <new-branch-name>
 
-Or undo this operation with:
-
-  git switch -
-
-Turn off this advice by setting config variable advice.detachedHead to false
-
-HEAD is now at ba03a73d Release 1.10.1 (#1461)
+HEAD is now at 32745366 Release 1.11.1 (#1514)
 namespace/nginx-ingress created
 serviceaccount/nginx-ingress created
 clusterrole.rbac.authorization.k8s.io/nginx-ingress created
@@ -49,6 +41,7 @@ clusterrole.rbac.authorization.k8s.io/nginx-ingress-app-protect created
 clusterrolebinding.rbac.authorization.k8s.io/nginx-ingress-app-protect created
 secret/default-server-secret created
 configmap/nginx-config created
+Warning: networking.k8s.io/v1beta1 IngressClass is deprecated in v1.19+, unavailable in v1.22+; use networking.k8s.io/v1 IngressClassList
 ingressclass.networking.k8s.io/nginx created
 customresourcedefinition.apiextensions.k8s.io/virtualservers.k8s.nginx.org created
 customresourcedefinition.apiextensions.k8s.io/virtualserverroutes.k8s.nginx.org created
@@ -59,10 +52,11 @@ globalconfiguration.k8s.nginx.org/nginx-configuration created
 customresourcedefinition.apiextensions.k8s.io/aplogconfs.appprotect.f5.com created
 customresourcedefinition.apiextensions.k8s.io/appolicies.appprotect.f5.com created
 customresourcedefinition.apiextensions.k8s.io/apusersigs.appprotect.f5.com created
-service/nginx-ingress created
 deployment.apps/nginx-ingress created
 configmap/nginx-config configured
+service/nginx-ingress created
 Install finished
+Save this random number for later 34f2b9f6
 {{< /output >}}
   
 2. Expose the Nginx Ingress Dashboard.
@@ -73,8 +67,6 @@ kind: Service
 metadata:
   name: dashboard-nginx-ingress
   namespace: nginx-ingress
-  annotations:
-    service.beta.kubernetes.io/azure-dns-label-name: dashboard-$randomnumber
 spec:
   type: LoadBalancer
   ports:

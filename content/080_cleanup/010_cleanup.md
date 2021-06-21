@@ -15,9 +15,3 @@ terraform destroy --auto-approve
 ```
 &nbsp;&nbsp;
   
-2. Finally, delete the previously created Cloud9 stack in the [CloudFormation console](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/).
-
-{{% notice warning %}}
-Please note: This will also delete the Cloud9 IDE instance.
-{{% /notice %}}
-&nbsp;&nbsp;

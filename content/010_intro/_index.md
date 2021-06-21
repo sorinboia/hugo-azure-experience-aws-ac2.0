@@ -16,4 +16,4 @@ The application is built with 6 different microservices that are deployed in the
 
 By the end of the workshop the "Arcadia Crypto" will be fully deployed and protected as described in the bellow diagram.
 
-![](/images/aws_workshop.gif)
+![](/images/azure_workshop.gif)
