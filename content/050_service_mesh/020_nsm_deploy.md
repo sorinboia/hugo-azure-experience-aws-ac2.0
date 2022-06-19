@@ -10,7 +10,7 @@ weight = 20
 
 ```
 kubectl apply -f files/5service_mesh/aks-kublet-webhook.yaml
-./files/binaries/nginx-meshctl deploy --registry-server "sorinboia" --image-tag 0.9.0 --sample-rate 1 --disable-auto-inject
+./files/binaries/nginx-meshctl deploy --registry-server "sorinboiaf5" --image-tag 0.9.0 --sample-rate 1 --disable-auto-inject
 ```
 {{< output >}}
 Deploying NGINX Service Mesh Control Plane in namespace "nginx-mesh"...
