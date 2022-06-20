@@ -12,21 +12,21 @@
     <title>Nginx Kubernetes Ingress Installation :: Nginx Experience</title>
 
     
-    <link href="../../css/nucleus.css?1655632351" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1655632351" rel="stylesheet">
-    <link href="../../css/hybrid.css?1655632351" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1655632351" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1655632351" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1655632351" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1655632351" rel="stylesheet">
-    <link href="../../css/theme.css?1655632351" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1655632351" rel="stylesheet">
+    <link href="../../css/nucleus.css?1655733762" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1655733762" rel="stylesheet">
+    <link href="../../css/hybrid.css?1655733762" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1655733762" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1655733762" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1655733762" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1655733762" rel="stylesheet">
+    <link href="../../css/theme.css?1655733762" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1655733762" rel="stylesheet">
     
-    <link href="../../css/theme-green.css?1655632351" rel="stylesheet">
+    <link href="../../css/theme-green.css?1655733762" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1655632351"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1655733762"></script>
 
     <style>
     :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1655632351"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1655632351"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1655733762"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1655733762"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1655632351"></script>
+<script type="text/javascript" src="../../js/search.js?1655733762"></script>
 
     
   </div>
@@ -973,6 +973,7 @@ For simplicity - we have already prepared an installation script.</p>
 <li>Run the command bellow:</li>
 </ol>
 <pre><code>./files/4ingress/ingress_install.sh
+source ~/.bashrc
 </code></pre><pre>Output<br><output class="bash">
 Starting Nginx Ingress Install
 Cloning into &#39;kubernetes-ingress&#39;...
@@ -1017,7 +1018,6 @@ deployment.apps/nginx-ingress created
 configmap/nginx-config configured
 service/nginx-ingress created
 Install finished
-Save this random number for later 34f2b9f6
 </output></pre>
 <ol start="2">
 <li>Expose the Nginx Ingress Dashboard.</li>
@@ -1028,6 +1028,8 @@ kind: Service
 metadata:
   name: dashboard-nginx-ingress
   namespace: nginx-ingress
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: dashboard-$randomnumber
 spec:
   type: LoadBalancer
   ports:
@@ -1039,7 +1041,7 @@ spec:
     app: nginx-ingress
 EOF
 </code></pre><ol start="3">
-<li>Check what we did so far is actually working:</li>
+<li>Wait for the EXTERNAL-IP to have an IP address</li>
 </ol>
 <pre><code>kubectl get svc --namespace=nginx-ingress
 </code></pre><pre>Output<br><output class="bash">
@@ -1047,19 +1049,10 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S) 
 dashboard-nginx-ingress   LoadBalancer   10.0.114.225   20.90.252.195   80:30766/TCP                 38s
 nginx-ingress             LoadBalancer   10.0.114.203   20.90.248.2     80:31470/TCP,443:31908/TCP   3m36s
 </output></pre>
-<p>Note the EXTERNAL-IP of the &ldquo;dashboard-nginx-ingress&rdquo;. This is the IP address that we are going to use in order to view the Nginx Dashboard.<br>
-Browse to the following location and verify you can see the dashboard: <code>http://&lt;DASHBOARD-EXTERNAL-IP&gt;/dashboard.html</code></p>
-<p>Note the EXTERNAL-IP of the &ldquo;nginx-ingress&rdquo;. This is the hostname/IP address that we are going to use in order to publish the Arcadia web application.<br>
-Browse to the following location and verify that you receive a 404 status code: <code>http://&lt;INGRESS-EXTERNAL-IP&gt;/</code></p>
-
-<div class="notices warning" ><p>Please note that it might take some time for the DNS names to become available.</p>
-</div>
-
 <ol start="4">
-<li>Save the EXTERNAL-IPs as env variables for later use</li>
+<li>Get the application and ingress dashboard domain names and save them for later and try to access the sites</li>
 </ol>
-<pre><code>export dashboard_nginx_ingress=$(kubectl get svc dashboard-nginx-ingress --namespace=nginx-ingress | tr -s &quot; &quot; | cut -d' ' -f4 | grep -v &quot;EXTERNAL-IP&quot;)
-export nginx_ingress=$(kubectl get svc nginx-ingress --namespace=nginx-ingress | tr -s &quot; &quot; | cut -d' ' -f4 | grep -v &quot;EXTERNAL-IP&quot;)
+<pre><code>printf &quot;For app browse to http://$nginx_ingress\nFor ingress dashboard browse to http://$dashboard_nginx_ingress/dashboard.html\n&quot;
 </code></pre>
 
 <footer class="footline">
@@ -1652,19 +1645,19 @@ export nginx_ingress=$(kubectl get svc nginx-ingress --namespace=nginx-ingress |
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1655632351"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1655632351"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1655632351"></script>
-    <script src="../../js/jquery.sticky.js?1655632351"></script>
-    <script src="../../js/featherlight.min.js?1655632351"></script>
-    <script src="../../js/highlight.pack.js?1655632351"></script>
+    <script src="../../js/clipboard.min.js?1655733762"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1655733762"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1655733762"></script>
+    <script src="../../js/jquery.sticky.js?1655733762"></script>
+    <script src="../../js/featherlight.min.js?1655733762"></script>
+    <script src="../../js/highlight.pack.js?1655733762"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1655632351"></script>
-    <script src="../../js/learn.js?1655632351"></script>
-    <script src="../../js/hugo-learn.js?1655632351"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1655733762"></script>
+    <script src="../../js/learn.js?1655733762"></script>
+    <script src="../../js/hugo-learn.js?1655733762"></script>
 
-    <link href="../../mermaid/mermaid.css?1655632351" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1655632351"></script>
+    <link href="../../mermaid/mermaid.css?1655733762" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1655733762"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

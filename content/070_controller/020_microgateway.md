@@ -70,5 +70,5 @@ export microhost=$(kubectl get svc microgateway | tr -s " " | cut -d' ' -f4 | gr
 ```
 
 {{< output >}}
-aa2ba08e2b4024a85ba93aa32d0bafac-603500592.eu-central-1.elb.amazonaws.com
+51.142.86.155
 {{< /output >}}

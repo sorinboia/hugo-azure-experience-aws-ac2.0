@@ -11,6 +11,7 @@ For simplicity - we have already prepared an installation script.
 
 ```
 ./files/4ingress/ingress_install.sh
+source ~/.bashrc
 ```
 {{< output >}}
 Starting Nginx Ingress Install
@@ -56,7 +57,6 @@ deployment.apps/nginx-ingress created
 configmap/nginx-config configured
 service/nginx-ingress created
 Install finished
-Save this random number for later 34f2b9f6
 {{< /output >}}
   
 2. Expose the Nginx Ingress Dashboard.
@@ -67,6 +67,8 @@ kind: Service
 metadata:
   name: dashboard-nginx-ingress
   namespace: nginx-ingress
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: dashboard-$randomnumber
 spec:
   type: LoadBalancer
   ports:
@@ -79,7 +81,7 @@ spec:
 EOF
 ```
 
-3. Check what we did so far is actually working:
+3. Wait for the EXTERNAL-IP to have an IP address
 
 ```
 kubectl get svc --namespace=nginx-ingress
@@ -89,21 +91,9 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S) 
 dashboard-nginx-ingress   LoadBalancer   10.0.114.225   20.90.252.195   80:30766/TCP                 38s
 nginx-ingress             LoadBalancer   10.0.114.203   20.90.248.2     80:31470/TCP,443:31908/TCP   3m36s
 {{< /output >}}
+  
 
-
-
-Note the EXTERNAL-IP of the "dashboard-nginx-ingress". This is the IP address that we are going to use in order to view the Nginx Dashboard.  
-Browse to the following location and verify you can see the dashboard: `http://<DASHBOARD-EXTERNAL-IP>/dashboard.html`
-
-Note the EXTERNAL-IP of the "nginx-ingress". This is the hostname/IP address that we are going to use in order to publish the Arcadia web application.  
-Browse to the following location and verify that you receive a 404 status code: `http://<INGRESS-EXTERNAL-IP>/`  
-
-{{% notice warning %}}
-Please note that it might take some time for the DNS names to become available.
-{{% /notice %}}
-
-4. Save the EXTERNAL-IPs as env variables for later use
+4. Get the application and ingress dashboard domain names and save them for later and try to access the sites
 ```
-export dashboard_nginx_ingress=$(kubectl get svc dashboard-nginx-ingress --namespace=nginx-ingress | tr -s " " | cut -d' ' -f4 | grep -v "EXTERNAL-IP")
-export nginx_ingress=$(kubectl get svc nginx-ingress --namespace=nginx-ingress | tr -s " " | cut -d' ' -f4 | grep -v "EXTERNAL-IP")
+printf "For app browse to http://$nginx_ingress\nFor ingress dashboard browse to http://$dashboard_nginx_ingress/dashboard.html\n"
 ```

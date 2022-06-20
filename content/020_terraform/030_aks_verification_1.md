@@ -18,8 +18,7 @@ kubectl get nodes
 ```
 {{< output >}}     
 NAME                                STATUS   ROLES   AGE   VERSION
-aks-agentpool-27613564-vmss000000   Ready    agent   22m   v1.19.11
-aks-agentpool-27613564-vmss000001   Ready    agent   22m   v1.19.11
+aks-agentpool-16369343-vmss000000   Ready    agent   77s   v1.21.9
 {{< /output >}}
 
 3. Change the directory back to the original repo folder:

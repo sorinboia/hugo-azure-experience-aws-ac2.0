@@ -14,7 +14,7 @@
       
       <guid>/040_ingress/010_ingress_install_1/</guid>
       <description>We are going to use the Nginx installation manifests based on the Nginx Ingress Controller installation guide. For simplicity - we have already prepared an installation script.
- Run the command bellow:  ./files/4ingress/ingress_install.shOutput
+ Run the command bellow:  ./files/4ingress/ingress_install.shsource ~/.bashrcOutput
 Starting Nginx Ingress InstallCloning into &amp;#39;kubernetes-ingress&amp;#39;...remote: Enumerating objects: 36045, done.remote: Counting objects: 100% (3722/3722), done.remote: Compressing objects: 100% (831/831), done.remote: Total 36045 (delta 3166), reused 2902 (delta 2890), pack-reused 32323Receiving objects: 100% (36045/36045), 50.</description>
     </item>
     
